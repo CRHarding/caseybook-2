@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+
 import './App.css';
 
 function App() {
+  const [user, setUser] = useState({
+    username: "CRHarding",
+    uuid: "12345678",
+    email: "casey@casey.com",
+    profilePic: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2017/03/THOR.jpg",
+    about: "Lorem ipsum dolor sit amet",
+    friends: []
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>CaseyBook!</h1>
+      <p>{user.username}</p>
+      <img src={user.profilePic} />
+      <p>{user.about}</p>
+      {user.friends.map(friend => <p>{friend.name}</p>)}
     </div>
   );
 }
